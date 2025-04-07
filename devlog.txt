@@ -1,0 +1,8 @@
+April 7 - 1:49 PM - Day 1
+
+For the first session, I first made sure that I understand all of the project requirements correctly. Then,
+I set up the initial threading structure for the bank simulation project. 
+I've created basic threads representing the tellers, initializing their readiness states, 
+and implemented a simple loop to simulate them being available to serve customers. 
+At this stage, each teller prints messages indicating their readiness and waiting state. 
+Going forward, I'll introduce customers and manage their interactions with tellers.
