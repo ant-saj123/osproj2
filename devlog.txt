@@ -6,3 +6,15 @@ I've created basic threads representing the tellers, initializing their readines
 and implemented a simple loop to simulate them being available to serve customers. 
 At this stage, each teller prints messages indicating their readiness and waiting state. 
 Going forward, I'll introduce customers and manage their interactions with tellers.
+
+April 8 - 11:35 AM - Day 2
+
+Since the last session, I added basic interactions between tellers and customers using semaphores 
+to synchronize their interactions. Customers now wait if all tellers are busy and select an available 
+teller as soon as one becomes free. I implemented a shared list tellers_ready, protected by a Lock, to manage 
+available tellers safely. Each teller adds themselves to this queue upon initialization, and each customer dequeues
+ a teller when it's their turn to be served. Each customer selects a teller, receives acknowledgment, and then releases
+  the teller semaphore to indicate completion of the basic interaction step. Right now, customers leave immediately after 
+  the teller acknowledges them. This basic synchronization ensures that tellers and customers interact without race conditions 
+  or deadlocks. Moving forward, I plan to implement transaction-specific interactions, allowing customers to perform deposits and 
+  withdrawals, and adding more complex resource management.
