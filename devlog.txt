@@ -18,3 +18,35 @@ available tellers safely. Each teller adds themselves to this queue upon initial
   the teller acknowledges them. This basic synchronization ensures that tellers and customers interact without race conditions 
   or deadlocks. Moving forward, I plan to implement transaction-specific interactions, allowing customers to perform deposits and 
   withdrawals, and adding more complex resource management.
+
+  April 9 - 2:17 PM - Day 3
+
+  Since the last session, I've implemented transaction types (deposit and withdrawal) for customers. Each customer now 
+  randomly selects a transaction type using the random.choice() function, adding variability to the simulation. Tellers 
+  have been enhanced to acknowledge the specific transaction type when a customer approaches, making the interaction more realistic. 
+  The synchronization mechanism has been improved to ensure orderly transaction initiation, preventing race conditions when customers 
+  select tellers. The existing teller selection process remains intact, but now includes the additional transaction information in the 
+  output messages. This gives a clearer picture of the bank's operation with different transaction types. Next, I'll add more detailed resource 
+  management including semaphores for critical bank resources and timing mechanisms to simulate realistic transaction durations.
+
+  April 10 - 7:20 PM - Day 4
+
+  Since last session, I've introduced semaphores for  bank resources to keep the realistic constraints in a bank environment. 
+  I added a safe_semaphore (with capacity 2) to represent the bank safe that can only be accessed by two people simultaneously, creating 
+  contention for this shared resource. Additionally, I added a manager_semaphore (with capacity 1) to meet the requirement that withdrawals 
+  must receive manager approval before proceeding. Transactions now simulate accessing these shared resources in the correct order, 
+  with withdrawals requiring manager approval first, followed by safe access. Customers now follow a proper transaction flow based on their transaction type, 
+  with different resource requirements. Next, I'll complete the  interactions by implementing the full customer-teller system 
+  from entry to exit and adding bank closure logic.
+
+
+  April 14 - 10:43 AM - Day 5
+
+  Since the last session, I've finalized the teller-customer interactions to create a complete bank simulation. I enhanced the customer 
+  flow to include explicit bank entry and exit stages, with appropriate announcements at each step. Tellers now clearly announce when 
+  customers enter and leave their station, providing better visibility into the simulation state. The transaction process has been 
+  refined to be more realistic, with proper sequencing of resource acquisition and release. I've implemented full synchronization 
+  for all interactions to prevent potential deadlocks . A bank closure mechanism has been added so that the simulation 
+  properly ends after all customers have been served, rather than running forever. The tellers now return to the available pool 
+  after serving each customer, allowing them to serve multiple customers throughout the simulation. The simulation is now complete and functional, 
+  accurately modeling a bank with multiple concurrent actors competing for limited resources.
